@@ -1,0 +1,45 @@
+<script>
+    $("#btnsave").click(function() {
+        console.log("Save Button Clicked");
+        let nm = $("#id_company").val()
+        let em = $("#id_email").val()
+        let ad = $("#id_address").val()
+        let csr = $("input[name=csrfmiddlewaretoken]").val()
+        if (nm == "") {
+            console.log("Please Enter Company")
+        } else
+        if (em == "") {
+            console.log("Please Enter Email")
+        } else if (ad == "") {
+            console.log("Please Enter Address")
+        } else {
+            console.log(nm);
+            console.log(em);
+            console.log(ad);
+            mydata = {
+                company: nm,
+                email: em,
+                address: ad,
+                csrfmiddlewaretoken: csr,
+            };
+            $.ajax({
+                url: "{% url 'company:save' %}",
+                method: "POST",
+                data: mydata,
+                success: function(data) {
+                    // console.log(data);
+                    if (data.status == "Save") {
+                        console.log("Company Added Successfully");
+                        console.log(data.company_data);
+                        $("form")[0].reset();
+                    }
+                    if (data.status == 0) {
+                        console.log("Unable to Save Company Data");
+                    }
+                },
+            })
+        }
+    });
+</script>
+});
+</script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD - Company Management</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <script src="{% static 'js/jquery.js' %}"></script>
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <h2 class="text-center alert alert-danger">Company Management</h2>
+        {% block content %} {% endblock content %}
+
+    </div><br><br>
+    <div class="container mt-5">
+        <h3><a class="text-center alert alert-danger" href="{% url 'company:company' %}">Company Add</a></h3><br><br>
+        <h3><a class="text-center alert alert-danger" href="{% url 'company:companylist' %}">Company Show</a></h3><br><br>
+        <h3><a class="test-center alert alert-info" href="{% url 'department:department' %}">Department Add</a></h3><br><br>
+        <h3><a class="test-center alert alert-info" href="{% url 'department:departmentlist' %}">Department Show</a></h3><br><br>
+        <h3><a class="text-center alert alert-danger" href="{% url 'project:project' %}">Project Add</a></h3><br><br>
+        <h3><a class="text-center alert alert-danger" href="{% url 'project:projectlist' %}">Project Show</a></h3><br><br>
+        <h3><a class="test-center alert alert-info" href="{% url 'employee:employee' %}">Employee Add</a></h3><br><br>
+        <h3><a class="test-center alert alert-info" href="{% url 'employee:employeelist' %}">Employee Show</a></h3><br><br>
+    </div>
+
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+
+</body>
+
+</html>
